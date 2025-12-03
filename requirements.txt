@@ -1,0 +1,11 @@
+opencv-python>=4.6.0
+mediapipe>=0.10.0
+torch>=1.13.0
+torchvision
+numpy
+pybullet
+tqdm
+scipy
+transforms3d
+Pillow
+requests
