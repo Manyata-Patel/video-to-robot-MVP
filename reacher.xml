@@ -1,0 +1,29 @@
+<mujoco model="reacher">
+    <compiler angle="degree" coordinate="local"/>
+    <option timestep="0.01" gravity="0 0 -9.81"/>
+    
+    <worldbody>
+        <body name="base" pos="0 0 0">
+            <geom name="base_geom" type="sphere" size="0.05" rgba="0.8 0.3 0.3 1"/>
+            
+            <body name="link1" pos="0 0 0">
+                <joint name="joint1" type="hinge" axis="0 0 1"/>
+                <geom name="link1_geom" type="capsule" fromto="0 0 0 0.2 0 0" size="0.02" rgba="0.3 0.3 0.8 1"/>
+                
+                <body name="link2" pos="0.2 0 0">
+                    <joint name="joint2" type="hinge" axis="0 0 1"/>
+                    <geom name="link2_geom" type="capsule" fromto="0 0 0 0.2 0 0" size="0.02" rgba="0.3 0.8 0.3 1"/>
+                    
+                    <body name="tip" pos="0.2 0 0">
+                        <geom name="tip_geom" type="sphere" size="0.03" rgba="0.8 0.8 0.3 1"/>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+    
+    <actuator>
+        <motor joint="joint1" ctrlrange="-1 1" gear="100"/>
+        <motor joint="joint2" ctrlrange="-1 1" gear="100"/>
+    </actuator>
+</mujoco>
